@@ -1,4 +1,4 @@
-name: Engine Predictive Maintenance pipeline
+name: Engine Predictive Maintenance Pipeline
 
 on:
   push:
