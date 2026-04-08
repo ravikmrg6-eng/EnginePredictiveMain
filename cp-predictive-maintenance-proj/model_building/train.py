@@ -1,5 +1,43 @@
+# defining a function to compute different metrics to check performance of a classification model built using sklearn
+def model_performance_classification_sklearn(model, predictors, target):
+    """
+    Function to compute different metrics to check classification model performance
 
+    model: classifier
+    predictors: independent variables
+    target: dependent variable
+    """
+
+    # predicting using the independent variables
+    pred = model.predict(predictors)
+
+    for i in range(len(pred)):
+      if pred[i]>0.5:
+        pred[i]=1
+      else:
+        pred[i]=0
+
+    # getting different metrics
+
+    acc = accuracy_score(target, pred)  # to compute Accuracy
+    recall = recall_score(target, pred)  # to compute Recall
+    precision = precision_score(target, pred)  # to compute Precision
+    f1 = f1_score(target, pred)  # to compute F1-score
+
+    # creating a dataframe of metrics
+    df_perf = pd.DataFrame(
+        {
+            "Accuracy": acc,
+            "Recall": recall,
+            "Precision": precision,
+            "F1": f1,
+        },
+        index=[0],
+    )
+
+    return df_perf
 # for data manipulation
+
 import pandas as pd
 from sklearn.preprocessing import StandardScaler, OneHotEncoder
 from sklearn.compose import make_column_transformer

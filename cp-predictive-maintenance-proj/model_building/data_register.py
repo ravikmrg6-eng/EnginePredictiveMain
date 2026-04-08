@@ -18,7 +18,7 @@ except RepositoryNotFoundError:
     print(f"Space '{repo_id}' created.")
 
 api.upload_folder(
-    folder_path="cp_predictive_maintenance_proj/data",
+    folder_path="cp-predictive-maintenance-proj/data",
     repo_id=repo_id,
     repo_type=repo_type,
 )
