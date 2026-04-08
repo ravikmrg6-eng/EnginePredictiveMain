@@ -43,9 +43,11 @@ from sklearn.preprocessing import StandardScaler, OneHotEncoder
 from sklearn.compose import make_column_transformer
 from sklearn.pipeline import make_pipeline
 # for model training, tuning, and evaluation
-import xgboost as xgb
+from sklearn.ensemble import RandomForestClassifier
+
 from sklearn.model_selection import GridSearchCV
 from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
+
 # for model serialization
 import joblib
 # for creating a folder
@@ -54,6 +56,14 @@ import os
 from huggingface_hub import login, HfApi, create_repo
 from huggingface_hub.utils import RepositoryNotFoundError, HfHubHTTPError
 import mlflow
+
+numerical_cols = ['Engine rpm', 'Lub oil pressure', 'Fuel pressure', 'Coolant pressure',
+                  'lub oil temp', 'Coolant temp']
+
+# Preprocessor
+preprocessor = make_column_transformer(
+    (StandardScaler(), numerical_cols))
+
 
 mlflow.set_tracking_uri("http://localhost:5000")
 mlflow.set_experiment("MLOps_cap_proj_experiment")
