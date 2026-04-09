@@ -26,12 +26,12 @@ Coolant_Temperature = st.number_input("The Temparture of the Engine Coolant",  m
 
 # Assemble input into DataFrame
 input_data = pd.DataFrame([{
-    'Engine_RPM': Engine_RPM,
-    'Lub_Oil_Pressure': Lub_Oil_Pressure,
-    'Fuel_Pressure': Fuel_Pressure,
-    'Coolant_Pressure': Coolant_Pressure,
-    'Lub_Oil_Temperature': Lub_Oil_Temperature,
-    'Coolant_Temperature': Coolant_Temperature
+    'Engine rpm': Engine_RPM,
+    'Lub oil pressure': Lub_Oil_Pressure,
+    'Fuel pressure': Fuel_Pressure,
+    'Coolant pressure': Coolant_Pressure,
+    'lub oil temp': Lub_Oil_Temperature,
+    'Coolant temp': Coolant_Temperature
     }])
 
 # Predict button
