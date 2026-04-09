@@ -76,7 +76,8 @@ preprocessor = make_column_transformer(
 mlflow.set_tracking_uri("http://localhost:5000")
 mlflow.set_experiment("MLOps_cap_proj_experiment")
 
-api = HfApi()
+
+api = HfApi(token=os.getenv("HF_TOKEN1"))
 
 Xtrain_path = "hf://datasets/ravikmrg6/CapStnProjMlopsPred/Xtrain.csv"
 Xtest_path = "hf://datasets/ravikmrg6/CapStnProjMlopsPred/Xtest.csv"
